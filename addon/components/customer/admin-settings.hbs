@@ -27,7 +27,7 @@
             <div class="space-y-4 mt-4">
                 {{#unless this.paymentsOnboardCompleted}}
                     <InfoBlock @type="warning" @icon="triangle-exclamation">
-                        <span>Payment onboard must be completed to enable payments from customers.</span>
+                        <span>{{t "customer.admin-settings.payment-onboard-help"}}</span>
                         <Button @text="Completed Payments Onboard" @onClick={{transition-to "settings.payments.onboard"}} @wrapperClass="mt-2" />
                     </InfoBlock>
                 {{/unless}}

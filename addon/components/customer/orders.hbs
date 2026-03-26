@@ -6,7 +6,7 @@
                     <div class="flex flex-row items-center justify-between mb-4">
                         <div class="flex flex-row items-center">
                             <div>
-                                <h1 class="text-lg font-bold">Orders</h1>
+                                <h1 class="text-lg font-bold">{{t "customer.orders.orders"}}</h1>
                             </div>
                             {{#if this.searchOrders.isRunning}}
                                 <div class="ml-2">
@@ -15,16 +15,16 @@
                             {{/if}}
                         </div>
                         <div>
-                            <Button @icon="paper-plane" @type="primary" @text="Create new order" @onClick={{this.startOrderCreation}} />
+                            <Button @icon="paper-plane" @type="primary" @text={{t "customer.orders.create-new-order"}} @onClick={{this.startOrderCreation}} />
                         </div>
                     </div>
                     <div class="mb-6">
-                        <Input @value={{this.query}} class="form-input form-input-lg w-full" {{on "input" (perform this.searchOrders)}} placeholder="Search orders" />
+                        <Input @value={{this.query}} class="form-input form-input-lg w-full" {{on "input" (perform this.searchOrders)}} placeholder={{t "customer.orders.search-orders"}} />
                     </div>
                     <div class="customer-orders-list-content overflow-y-scroll pl-2 pr-4 pt-2" {{set-height "680px"}}>
                         <div class="space-y-4">
                             {{#if this.loadCustomerOrders.isRunning}}
-                                <Spinner @loadingMessage="Loading orders..." @loadingMessageClass="dark:text-gray-100 test-sm ml-2" class="flex flex-row items-center" />
+                                <Spinner @loadingMessage={{t "customer.orders.loading-orders"}} @loadingMessageClass="dark:text-gray-100 test-sm ml-2" class="flex flex-row items-center" />
                             {{/if}}
                             {{#each this.orders as |order|}}
                                 <OrderProgressCard
@@ -71,9 +71,9 @@
                                                     <div class="flex flex-row">
                                                         <div class="flex-1">
                                                             <div class="text-xs font-semibold">{{driver.name}}</div>
-                                                            <div class="text-xs">Status:
-                                                                <span class="{{if driver.online 'text-green-500' 'text-red-400'}}">{{if driver.online "Online" "Offline"}}</span></div>
-                                                            <div class="text-xs truncate">Pos: {{driver.positionString}}</div>
+                                                            <div class="text-xs">{{t "customer.orders.status"}}
+                                                                <span class="{{if driver.online 'text-green-500' 'text-red-400'}}">{{if driver.online (t "common.online") (t "common.offline")}}</span></div>
+                                                            <div class="text-xs truncate">{{t "customer.orders.pos"}} {{driver.positionString}}</div>
                                                         </div>
                                                     </div>
                                                 </marker.popup>
@@ -81,7 +81,7 @@
                                                     <div class="flex items-center space-x-1">
                                                         <div class="text-xs font-semibold">{{driver.name}}</div>
                                                         <div>•</div>
-                                                        <div class="text-xs {{if driver.online 'text-green-500' 'text-red-400'}}">{{if driver.online "Online" "Offline"}}</div>
+                                                        <div class="text-xs {{if driver.online 'text-green-500' 'text-red-400'}}">{{if driver.online (t "common.online") (t "common.offline")}}</div>
                                                     </div>
                                                     <div class="text-xs truncate"><FaIcon @icon="location-dot" @size="xs" class="mr-0.5" />{{driver.positionString}}</div>
                                                 </marker.tooltip>
@@ -112,15 +112,15 @@
                                                         <h1 class="font-bold text-sm">{{order.tracking_number.tracking_number}}</h1>
                                                     </ClickToCopy>
                                                     <div class="flex flex-row">
-                                                        <div class="text-xs font-semibold mr-1">Date Created:</div>
+                                                        <div class="text-xs font-semibold mr-1">{{t "customer.orders.date-created"}}</div>
                                                         <div class="text-xs">{{order.createdAtShort}}</div>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div class="flex flew-row space-x-2">
-                                                        <Button @helpText="View Label" @icon="print" @onClick={{this.viewOrderLabel}} />
-                                                        <Button @helpText="View Route" @icon="route" @onClick={{this.locateOrderRoute}} />
-                                                        <Button @helpText="Locate Driver" @icon="truck" @onClick={{this.locateDriver}} @disabled={{not order.has_driver_assigned}} />
+                                                        <Button @helpText={{t "customer.orders.view-label"}} @icon="print" @onClick={{this.viewOrderLabel}} />
+                                                        <Button @helpText={{t "customer.orders.view-route"}} @icon="route" @onClick={{this.locateOrderRoute}} />
+                                                        <Button @helpText={{t "customer.orders.locate-driver"}} @icon="truck" @onClick={{this.locateDriver}} @disabled={{not order.has_driver_assigned}} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +128,7 @@
                                             <div>
                                                 <div class="flex flex-row justify-between mb-2 ml-1">
                                                     <div class="flex-1">
-                                                        <h1 class="font-bold text-sm">Activity:</h1>
+                                                        <h1 class="font-bold text-sm">{{t "customer.orders.activity"}}</h1>
                                                     </div>
                                                     <div>
                                                         <div
@@ -137,9 +137,9 @@
                                                                 px-2 py-0.5 text-xs flex-grow-0"
                                                         >
                                                             {{#if order.has_driver_assigned}}
-                                                                <span>Driver Assigned</span>
+                                                                <span>{{t "customer.orders.driver-assigned"}}</span>
                                                             {{else}}
-                                                                <span>No Driver Assigned</span>
+                                                                <span>{{t "customer.orders.no-driver-assigned"}}</span>
                                                             {{/if}}
                                                         </div>
                                                     </div>
@@ -163,7 +163,7 @@
                                             <div class="customer-order-details-seperator"></div>
                                             <div>
                                                 <div class="mb-2 ml-1">
-                                                    <h1 class="font-bold text-sm">Items:</h1>
+                                                    <h1 class="font-bold text-sm">{{t "customer.orders.items"}}</h1>
                                                 </div>
                                                 {{#if order.isMultipleDropoffOrder}}
                                                     <div class="flex flex-col space-y-2 overflow-y-scroll" {{set-max-height "330px"}}>
@@ -195,15 +195,15 @@
                                                                             <div class="flex-1">
                                                                                 <div class="text-sm font-bold">{{n-a entity.name (concat "Item " (add index 1))}}</div>
                                                                                 <div class="text-xs">
-                                                                                    <span class="font-semibold">Description:</span>
-                                                                                    <span>{{n-a entity.description "No description provided."}}</span>
+                                                                                    <span class="font-semibold">{{t "customer.orders.description"}}</span>
+                                                                                    <span>{{n-a entity.description (t "customer.orders.no-description")}}</span>
                                                                                 </div>
-                                                                                <ClickToCopy @value={{entity.tracking}} class="text-xs"><span class="font-semibold">Tracking:</span>
+                                                                                <ClickToCopy @value={{entity.tracking}} class="text-xs"><span class="font-semibold">{{t "customer.orders.tracking"}}</span>
                                                                                     {{n-a entity.tracking}}
                                                                                 </ClickToCopy>
                                                                                 {{#if entity.price}}
                                                                                     <div class="text-xs">
-                                                                                        <span class="font-semibold">Price:</span>
+                                                                                        <span class="font-semibold">{{t "customer.orders.price"}}</span>
                                                                                         <span>{{format-currency entity.price entity.currency}}</span>
                                                                                     </div>
                                                                                 {{/if}}
@@ -217,7 +217,7 @@
                                                                 </div>
                                                             </div>
                                                         {{else}}
-                                                            <div class="text-xs text-gray-500 px-2">None</div>
+                                                            <div class="text-xs text-gray-500 px-2">{{t "customer.orders.none"}}</div>
                                                         {{/each}}
                                                     </div>
                                                 {{else}}
@@ -231,16 +231,16 @@
                                                                     <div class="flex-1">
                                                                         <div class="text-sm font-bold">{{n-a entity.name (concat "Item " (add index 1))}}</div>
                                                                         <div class="text-xs">
-                                                                            <span class="font-semibold">Description:</span>
+                                                                            <span class="font-semibold">{{t "common.description"}}:</span>
                                                                             <span>{{n-a entity.description "No description provided."}}</span>
                                                                         </div>
                                                                         <ClickToCopy @value={{entity.tracking}} class="text-xs">
-                                                                            <span class="font-semibold">Tracking:</span>
+                                                                            <span class="font-semibold">{{t "common.tracking"}}:</span>
                                                                             <span>{{n-a entity.tracking}}</span>
                                                                         </ClickToCopy>
                                                                         {{#if entity.price}}
                                                                             <div class="text-xs">
-                                                                                <span class="font-semibold">Price:</span>
+                                                                                <span class="font-semibold">{{t "common.price"}}:</span>
                                                                                 <span>{{format-currency entity.price entity.currency}}</span>
                                                                             </div>
                                                                         {{/if}}
@@ -248,7 +248,7 @@
                                                                 </div>
                                                             </div>
                                                         {{else}}
-                                                            <div class="text-xs text-gray-500 px-2">None</div>
+                                                            <div class="text-xs text-gray-500 px-2">{{t "customer.orders.none"}}</div>
                                                         {{/each}}
                                                     </div>
                                                 {{/if}}
@@ -257,7 +257,7 @@
                                                 <div class="customer-order-details-seperator"></div>
                                                 <div>
                                                     <div class="mb-2 ml-1">
-                                                        <h1 class="font-bold text-sm">Service Fee's:</h1>
+                                                        <h1 class="font-bold text-sm">{{t "customer.orders.service-fees"}}</h1>
                                                     </div>
                                                     <div>
                                                         <div class="order-view-purchase-rate-table-wrapper next-table-wrapper no-scroll h-auto table-fluid rounded-b-md">
@@ -308,12 +308,12 @@
                         </div>
                     {{else}}
                         <div class="flex-1 w-full h-full flex items-center justify-center">
-                            <Spinner @loadingMessage="Loading order details..." @loadingMessageClass="dark:text-gray-100 test-sm ml-2" class="flex flex-row items-center" />
+                            <Spinner @loadingMessage={{t "customer.orders.loading-order-details"}} @loadingMessageClass="dark:text-gray-100 test-sm ml-2" class="flex flex-row items-center" />
                         </div>
                     {{/if}}
                 {{else}}
                     <div class="flex-1 w-full h-full flex items-center justify-center">
-                        <div class="text-base">Select an Order to view Details</div>
+                        <div class="text-base">{{t "customer.orders.select-order"}}</div>
                     </div>
                 {{/if}}
             </div>

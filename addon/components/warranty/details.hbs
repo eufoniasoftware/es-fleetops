@@ -2,62 +2,62 @@
     <ContentPanel @title="Details" @open={{true}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
             <div class="field-info-container">
-                <div class="field-name">Provider</div>
+                <div class="field-name">{{t "warranty.fields.provider"}}</div>
                 <div class="field-value">{{n-a @resource.provider}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Policy Number</div>
+                <div class="field-name">{{t "warranty.fields.policy-number"}}</div>
                 <div class="field-value">{{n-a @resource.policy_number}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Status</div>
+                <div class="field-name">{{t "warranty.fields.status"}}</div>
                 <div class="field-value">
                     {{#if @resource.is_active}}
-                        <Badge @status="success">Active</Badge>
+                        <Badge @status="success">{{t "warranty.fields.active"}}</Badge>
                     {{else if @resource.is_expired}}
-                        <Badge @status="danger">Expired</Badge>
+                        <Badge @status="danger">{{t "warranty.fields.expired"}}</Badge>
                     {{else}}
-                        <Badge @status="default">Inactive</Badge>
+                        <Badge @status="default">{{t "warranty.fields.inactive"}}</Badge>
                     {{/if}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Vendor</div>
+                <div class="field-name">{{t "warranty.fields.vendor"}}</div>
                 <div class="field-value">{{n-a @resource.vendor_name}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Subject</div>
+                <div class="field-name">{{t "warranty.fields.subject"}}</div>
                 <div class="field-value">{{n-a @resource.subject_name}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Coverage Summary</div>
+                <div class="field-name">{{t "warranty.fields.coverage-summary"}}</div>
                 <div class="field-value">{{n-a @resource.coverage_summary}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Start Date</div>
+                <div class="field-name">{{t "warranty.fields.start-date"}}</div>
                 <div class="field-value">{{format-date @resource.start_date}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">End Date</div>
+                <div class="field-name">{{t "warranty.fields.end-date"}}</div>
                 <div class="field-value">{{format-date @resource.end_date}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Days Remaining</div>
+                <div class="field-name">{{t "warranty.fields.days-remaining"}}</div>
                 <div class="field-value">
                     {{#if @resource.is_expired}}
-                        <Badge @status="danger">Expired</Badge>
-                    {{else if @resource.days_remaining}}
+                        <Badge @status="danger">{{t "warranty.fields.expired"}}</Badge>
+                    {{else if (gt @resource.days_remaining 0)}}
                         {{@resource.days_remaining}} days
                         {{#if (lt @resource.days_remaining 30)}}
-                            <Badge @status="warning">Expiring Soon</Badge>
+                            <Badge @status="warning">{{t "warranty.fields.expiring-soon"}}</Badge>
                         {{/if}}
                     {{else}}
                         N/A
@@ -66,12 +66,12 @@
             </div>
 
             <div class="field-info-container col-span-3">
-                <div class="field-name">Terms</div>
+                <div class="field-name">{{t "warranty.fields.terms"}}</div>
                 <div class="field-value">{{n-a @resource.terms}}</div>
             </div>
 
             <div class="field-info-container col-span-3">
-                <div class="field-name">Policy Document</div>
+                <div class="field-name">{{t "warranty.fields.policy-document"}}</div>
                 <div class="field-value">{{n-a @resource.policy}}</div>
             </div>
         </div>

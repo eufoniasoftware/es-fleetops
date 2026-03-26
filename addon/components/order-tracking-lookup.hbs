@@ -16,7 +16,7 @@
                                         <h1 class="font-bold text-lg">{{order.tracking_number.tracking_number}}</h1>
                                     </ClickToCopy>
                                     <div class="flex flex-row">
-                                        <div class="text-sm font-semibold mr-1">Date Created:</div>
+                                        <div class="text-sm font-semibold mr-1">{{t "order-tracking.date-created"}}</div>
                                         <div class="text-sm">{{order.createdAtShort}}</div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                 <div>
                                     <div class="flex flex-row items-center justify-between mb-2 ml-1">
                                         <div class="flex-1">
-                                            <h1 class="font-bold text-sm">Live Map:</h1>
+                                            <h1 class="font-bold text-sm">{{t "order-tracking.live-map"}}</h1>
                                         </div>
                                         <div class="flex flew-row space-x-2">
                                             <Button @helpText="View Route" @icon="route" @onClick={{this.locateOrderRoute}} @size="xs" />
@@ -68,7 +68,7 @@
                                                             <div class="flex items-center space-x-1">
                                                                 <div class="text-xs font-semibold">{{driver.name}}</div>
                                                                 <div>•</div>
-                                                                <div class="text-xs {{if driver.online 'text-green-500' 'text-red-400'}}">{{if driver.online "Online" "Offline"}}</div>
+                                                                <div class="text-xs">{{t "customer.orders.live-map.status"}} <span class="{{if driver.online 'text-green-500' 'text-red-400'}}">{{if driver.online (t "customer.orders.live-map.online") (t "customer.orders.live-map.offline")}}</span></div>
                                                             </div>
                                                             <div class="text-xs truncate"><FaIcon @icon="location-dot" @size="xs" class="mr-0.5" />{{driver.positionString}}</div>
                                                         </marker.tooltip>

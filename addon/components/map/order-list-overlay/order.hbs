@@ -34,7 +34,7 @@
             </div>
             <div class="order-listing-row-body">
                 <div class="order-listing-row-body-address start">
-                    <div class="font-semibold">Pickup</div>
+                    <div class="font-semibold">{{t "common.pickup"}}</div>
                     <div class="address-text">
                         {{#if @order.payload.isMultiDrop}}
                             {{@order.payload.firstWaypoint.address}}
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="order-listing-row-body-address end">
-                    <div class="font-semibold">Dropoff</div>
+                    <div class="font-semibold">{{t "common.dropoff"}}</div>
                     <div class="address-text">
                         {{#if @order.payload.isMultiDrop}}
                             {{@order.payload.lastWaypoint.address}}
@@ -69,7 +69,7 @@
                                 />
                             </div>
                             <div class="resource-assigned-details">
-                                <div class="font-semibold">Customer</div>
+                                <div class="font-semibold">{{t "common.customer"}}</div>
                                 <div>{{n-a @order.customer.name "No Customer"}}</div>
                                 <div>{{n-a @order.customer.phone "No Phone"}}</div>
                             </div>
@@ -93,7 +93,7 @@
                                 />
                             </div>
                             <div class="resource-assigned-details">
-                                <div class="font-semibold">Driver Assigned</div>
+                                <div class="font-semibold">{{t "vehicle.fields.driver-assigned"}}</div>
                                 <div>{{n-a @order.driver_assigned.name "No Driver"}}</div>
                                 <div>{{n-a @order.driver_assigned.phone "No Phone"}}</div>
                             </div>

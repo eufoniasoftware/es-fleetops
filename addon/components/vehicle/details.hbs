@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs dark:text-gray-100">
             {{! Vehicle Identification }}
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-1">
-                Vehicle Identification
+                {{t "vehicle.sections.identification"}}
             </div>
 
             <div class="field-info-container">
@@ -43,28 +43,28 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Trim</div>
+                <div class="field-name">{{t "vehicle.fields.trim"}}</div>
                 <div class="field-value">{{n-a @resource.trim}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Color</div>
+                <div class="field-name">{{t "vehicle.fields.color"}}</div>
                 <div class="field-value">{{n-a @resource.color}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Serial Number</div>
+                <div class="field-name">{{t "vehicle.fields.serial-number"}}</div>
                 <div class="field-value">{{n-a @resource.serial_number}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Class</div>
+                <div class="field-name">{{t "vehicle.fields.class"}}</div>
                 <div class="field-value">{{n-a @resource.class}}</div>
             </div>
 
             {{! Assignment & Status }}
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Assignment & Status
+                {{t "vehicle.sections.assignment-status"}}
             </div>
 
             <div class="field-info-container">
@@ -80,13 +80,13 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Call Sign</div>
+                <div class="field-name">{{t "vehicle.fields.call-sign"}}</div>
                 <div class="field-value">{{n-a @resource.call_sign}}</div>
             </div>
 
             {{! Location }}
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Location
+                {{t "vehicle.sections.location"}}
             </div>
 
             <div class="field-info-container col-span-2">
@@ -101,33 +101,33 @@
     </ContentPanel>
 
     {{! MEASUREMENT, UNITS & ODOMETER }}
-    <ContentPanel @title="Measurement & Units" @open={{false}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "vehicle.sections.measurement-units"}} @open={{false}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs dark:text-gray-100">
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-1">
-                Measurement & Units
+                {{t "vehicle.sections.measurement-units"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">System of Measurement</div>
+                <div class="field-name">{{t "vehicle.fields.system-of-measurement"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "measurementSystems" @resource.measurement_system)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Fuel Volume Unit</div>
+                <div class="field-name">{{t "vehicle.fields.fuel-volume-unit"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "fuelVolumeUnits" @resource.fuel_volume_unit)}}
                 </div>
             </div>
 
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Odometer & Usage
+                {{t "vehicle.sections.odometer-usage"}}
             </div>
 
             <div class="field-info-container">
                 <div class="field-name">
-                    {{concat "Current Odometer (" @resource.odometer_unit ")"}}
+                    {{t "vehicle.fields.current-odometer"}} ({{@resource.odometer_unit}})
                 </div>
                 <div class="field-value">
                     {{n-a @resource.odometer}}
@@ -135,63 +135,63 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Odometer Unit</div>
+                <div class="field-name">{{t "vehicle.fields.odometer-unit"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "odometerUnits" @resource.odometer_unit)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Odometer at Purchase</div>
+                <div class="field-name">{{t "vehicle.fields.odometer-at-purchase"}}</div>
                 <div class="field-value">{{n-a @resource.odometer_at_purchase}}</div>
             </div>
         </div>
     </ContentPanel>
 
     {{! BODY & USAGE }}
-    <ContentPanel @title="Body & Usage" @open={{false}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "vehicle.sections.body-usage"}} @open={{false}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs dark:text-gray-100">
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-1">
-                Body & Usage
+                {{t "vehicle.sections.body-usage"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Body Type</div>
+                <div class="field-name">{{t "vehicle.fields.body-type"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "vehicleBodyTypes" @resource.body_type)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Body Subtype</div>
+                <div class="field-name">{{t "vehicle.fields.body-subtype"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "vehicleBodySubTypes" @resource.body_sub_type)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Usage Type</div>
+                <div class="field-name">{{t "vehicle.fields.usage-type"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "vehicleUsageTypes" @resource.usage_type)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Ownership Type</div>
+                <div class="field-name">{{t "vehicle.fields.ownership-type"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "vehicleOwnershipTypes" @resource.ownership_type)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Fuel Type</div>
+                <div class="field-name">{{t "vehicle.fields.fuel-type"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "fuelTypes" @resource.fuel_type)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Transmission</div>
+                <div class="field-name">{{t "vehicle.fields.transmission"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "transmissionTypes" @resource.transmission)}}
                 </div>
@@ -200,51 +200,51 @@
     </ContentPanel>
 
     {{! TECHNICAL SPECIFICATIONS }}
-    <ContentPanel @title="Technical Specifications" @open={{false}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "vehicle.sections.tech-specs"}} @open={{false}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 text-xs dark:text-gray-100">
 
             {{! Powertrain & Engine }}
             <div class="col-span-3 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-1">
-                Powertrain & Engine
+                {{t "vehicle.sections.powertrain-engine"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Number</div>
+                <div class="field-name">{{t "vehicle.fields.engine-number"}}</div>
                 <div class="field-value">{{n-a @resource.engine_number}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Make</div>
+                <div class="field-name">{{t "vehicle.fields.engine-make"}}</div>
                 <div class="field-value">{{n-a @resource.engine_make}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Model</div>
+                <div class="field-name">{{t "vehicle.fields.engine-model"}}</div>
                 <div class="field-value">{{n-a @resource.engine_model}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Family</div>
+                <div class="field-name">{{t "vehicle.fields.engine-family"}}</div>
                 <div class="field-value">{{n-a @resource.engine_family}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Configuration</div>
+                <div class="field-name">{{t "vehicle.fields.engine-configuration"}}</div>
                 <div class="field-value">{{n-a @resource.engine_configuration}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Cylinder Arrangement</div>
+                <div class="field-name">{{t "vehicle.fields.cylinder-arrangement"}}</div>
                 <div class="field-value">{{n-a @resource.cylinder_arrangement}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Number of Cylinders</div>
+                <div class="field-name">{{t "vehicle.fields.number-of-cylinders"}}</div>
                 <div class="field-value">{{n-a @resource.number_of_cylinders}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Size</div>
+                <div class="field-name">{{t "vehicle.fields.engine-size"}}</div>
                 <div class="field-value">
                     {{#if @resource.engine_size}}
                         {{@resource.engine_size}}
@@ -256,7 +256,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Engine Displacement</div>
+                <div class="field-name">{{t "vehicle.fields.engine-displacement"}}</div>
                 <div class="field-value">
                     {{#if @resource.engine_displacement}}
                         {{@resource.engine_displacement}}
@@ -268,7 +268,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Horsepower</div>
+                <div class="field-name">{{t "vehicle.fields.horsepower"}}</div>
                 <div class="field-value">
                     {{#if @resource.horsepower}}
                         {{@resource.horsepower}}
@@ -280,12 +280,12 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Horsepower RPM</div>
+                <div class="field-name">{{t "vehicle.fields.horsepower-rpm"}}</div>
                 <div class="field-value">{{n-a @resource.horsepower_rpm}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Torque</div>
+                <div class="field-name">{{t "vehicle.fields.torque"}}</div>
                 <div class="field-value">
                     {{#if @resource.torque}}
                         {{@resource.torque}}
@@ -297,17 +297,17 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Torque RPM</div>
+                <div class="field-name">{{t "vehicle.fields.torque-rpm"}}</div>
                 <div class="field-value">{{n-a @resource.torque_rpm}}</div>
             </div>
 
             {{! Capacity & Dimensions }}
             <div class="col-span-3 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Capacity & Dimensions
+                {{t "vehicle.sections.capacity-dimensions"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Fuel Capacity</div>
+                <div class="field-name">{{t "vehicle.fields.fuel-capacity"}}</div>
                 <div class="field-value">
                     {{#if @resource.fuel_capacity}}
                         {{@resource.fuel_capacity}}
@@ -319,7 +319,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Payload Capacity</div>
+                <div class="field-name">{{t "vehicle.fields.payload-capacity"}}</div>
                 <div class="field-value">
                     {{#if @resource.payload_capacity}}
                         {{@resource.payload_capacity}}
@@ -331,7 +331,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Towing Capacity</div>
+                <div class="field-name">{{t "vehicle.fields.towing-capacity"}}</div>
                 <div class="field-value">
                     {{#if @resource.towing_capacity}}
                         {{@resource.towing_capacity}}
@@ -343,12 +343,12 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Seating Capacity</div>
+                <div class="field-name">{{t "vehicle.fields.seating-capacity"}}</div>
                 <div class="field-value">{{n-a @resource.seating_capacity}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Vehicle Weight</div>
+                <div class="field-name">{{t "vehicle.fields.vehicle-weight"}}</div>
                 <div class="field-value">
                     {{#if @resource.weight}}
                         {{@resource.weight}}
@@ -360,7 +360,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Length</div>
+                <div class="field-name">{{t "vehicle.fields.length"}}</div>
                 <div class="field-value">
                     {{#if @resource.length}}
                         {{@resource.length}}
@@ -372,7 +372,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Width</div>
+                <div class="field-name">{{t "vehicle.fields.width"}}</div>
                 <div class="field-value">
                     {{#if @resource.width}}
                         {{@resource.width}}
@@ -384,7 +384,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Height</div>
+                <div class="field-name">{{t "vehicle.fields.height"}}</div>
                 <div class="field-value">
                     {{#if @resource.height}}
                         {{@resource.height}}
@@ -396,7 +396,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Cargo Volume</div>
+                <div class="field-name">{{t "vehicle.fields.cargo-volume"}}</div>
                 <div class="field-value">
                     {{#if @resource.cargo_volume}}
                         {{@resource.cargo_volume}}
@@ -408,7 +408,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Passenger Volume</div>
+                <div class="field-name">{{t "vehicle.fields.passenger-volume"}}</div>
                 <div class="field-value">
                     {{#if @resource.passenger_volume}}
                         {{@resource.passenger_volume}}
@@ -420,7 +420,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Interior Volume</div>
+                <div class="field-name">{{t "vehicle.fields.interior-volume"}}</div>
                 <div class="field-value">
                     {{#if @resource.interior_volume}}
                         {{@resource.interior_volume}}
@@ -432,7 +432,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Ground Clearance</div>
+                <div class="field-name">{{t "vehicle.fields.ground-clearance"}}</div>
                 <div class="field-value">
                     {{#if @resource.ground_clearance}}
                         {{@resource.ground_clearance}}
@@ -444,7 +444,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Bed Length</div>
+                <div class="field-name">{{t "vehicle.fields.bed-length"}}</div>
                 <div class="field-value">
                     {{#if @resource.bed_length}}
                         {{@resource.bed_length}}
@@ -457,16 +457,16 @@
 
             {{! Regulatory & Compliance }}
             <div class="col-span-3 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Regulatory & Compliance
+                {{t "vehicle.sections.regulatory-compliance"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Emission Standard</div>
+                <div class="field-name">{{t "vehicle.fields.emission-standard"}}</div>
                 <div class="field-value">{{n-a @resource.emission_standard}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">DPF Equipped</div>
+                <div class="field-name">{{t "vehicle.fields.dpf-equipped"}}</div>
                 <div class="field-value">
                     {{#if (eq @resource.dpf_equipped true)}}
                         {{t "common.yes"}}
@@ -479,7 +479,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">SCR Equipped</div>
+                <div class="field-name">{{t "vehicle.fields.scr-equipped"}}</div>
                 <div class="field-value">
                     {{#if (eq @resource.scr_equipped true)}}
                         {{t "common.yes"}}
@@ -492,7 +492,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">GVWR</div>
+                <div class="field-name">{{t "vehicle.fields.gvwr"}}</div>
                 <div class="field-value">
                     {{#if @resource.gvwr}}
                         {{@resource.gvwr}}
@@ -504,7 +504,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">GCWR</div>
+                <div class="field-name">{{t "vehicle.fields.gcwr"}}</div>
                 <div class="field-value">
                     {{#if @resource.gcwr}}
                         {{@resource.gcwr}}
@@ -518,91 +518,91 @@
     </ContentPanel>
 
     {{! FINANCIAL & LIFECYCLE }}
-    <ContentPanel @title="Financial & Lifecycle" @open={{false}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "vehicle.sections.financial-lifecycle"}} @open={{false}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs dark:text-gray-100">
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-1">
-                Asset Values
+                {{t "vehicle.sections.asset-values"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Acquisition Cost</div>
+                <div class="field-name">{{t "vehicle.fields.acquisition-cost"}}</div>
                 <div class="field-value">
                     {{format-currency @resource.acquisition_cost @resource.currency}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Current Value</div>
+                <div class="field-name">{{t "vehicle.fields.current-value"}}</div>
                 <div class="field-value">
                     {{format-currency @resource.current_value @resource.currency}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Insurance Value</div>
+                <div class="field-name">{{t "vehicle.fields.insurance-value"}}</div>
                 <div class="field-value">
                     {{format-currency @resource.insurance_value @resource.currency}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Depreciation Rate (%)</div>
+                <div class="field-name">{{t "vehicle.fields.depreciation-rate"}}</div>
                 <div class="field-value">{{n-a @resource.depreciation_rate}}</div>
             </div>
 
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Lifecycle & Service Life
+                {{t "vehicle.sections.lifecycle-service-life"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Estimated Service Life (Distance)</div>
+                <div class="field-name">{{t "vehicle.fields.estimated-service-life-distance"}}</div>
                 <div class="field-value">{{n-a @resource.estimated_service_life_distance}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Service Life Distance Unit</div>
+                <div class="field-name">{{t "vehicle.fields.service-life-distance-unit"}}</div>
                 <div class="field-value">
                     {{n-a (get-fleet-ops-option-label "odometerUnits" @resource.estimated_service_life_distance_unit)}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Estimated Service Life (Months)</div>
+                <div class="field-name">{{t "vehicle.fields.estimated-service-life-months"}}</div>
                 <div class="field-value">{{n-a @resource.estimated_service_life_months}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Purchase Date</div>
+                <div class="field-name">{{t "vehicle.fields.purchase-date"}}</div>
                 <div class="field-value">
                     {{n-a (format-date-fns @resource.purchased_at "dd-MM-yyyy")}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Lease Expiry Date</div>
+                <div class="field-name">{{t "vehicle.fields.lease-expiry-date"}}</div>
                 <div class="field-value">
                     {{n-a (format-date-fns @resource.lease_expires_at "dd-MM-yyyy")}}
                 </div>
             </div>
 
             <div class="col-span-2 text-[11px] uppercase tracking-wide text-gray-500 font-semibold mt-3">
-                Financing (Loan)
+                {{t "vehicle.sections.financing-loan"}}
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Loan Amount</div>
+                <div class="field-name">{{t "vehicle.fields.loan-amount"}}</div>
                 <div class="field-value">
                     {{format-currency @resource.loan_amount @resource.currency}}
                 </div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Number of Payments</div>
+                <div class="field-name">{{t "vehicle.fields.number-of-payments"}}</div>
                 <div class="field-value">{{n-a @resource.loan_number_of_payments}}</div>
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">First Payment Date</div>
+                <div class="field-name">{{t "vehicle.fields.first-payment-date"}}</div>
                 <div class="field-value">
                     {{n-a (format-date-fns @resource.loan_first_payment "dd-MM-yyyy")}}
                 </div>

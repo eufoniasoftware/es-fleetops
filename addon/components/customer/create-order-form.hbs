@@ -1,10 +1,10 @@
 <Overlay @position="right" @noBackdrop={{true}} @width="580px" @fullHeight={{true}} @isResizable={{true}} as |overlay|>
-    <Overlay::Header @overlay={{overlay}} @title="New Order" @onPressCancel={{this.cancelOrderCreation}}>
+    <Overlay::Header @overlay={{overlay}} @title={{t "customer.orders.new-order"}} @onPressCancel={{this.cancelOrderCreation}}>
         <:actions>
             <Button
                 @icon="check"
                 @type="primary"
-                @text={{if (media "isMobile") "" "Submit"}}
+                @text={{if (media "isMobile") "" (t "common.submit")}}
                 @onClick={{perform this.createOrder}}
                 @isLoading={{this.createOrder.isRunning}}
                 @permission="fleet-ops create order"
@@ -15,7 +15,7 @@
     <Overlay::Body @wrapperClass="new-order-overlay-body p-0i" class="p-0i">
         <ContentPanel @title={{t "common.type"}} @open={{true}} @wrapperClass="bordered-top">
             <div class="input-group">
-                <InputLabel @labelText={{t "order.fields.order-type"}} @helpText="Select the type of order you want to create." />
+                <InputLabel @labelText={{t "order.fields.order-type"}} @helpText={{t "customer.orders.type-help"}} />
                 <Select
                     @value={{this.orderConfig.id}}
                     @options={{this.orderConfigs}}
@@ -211,7 +211,7 @@
                 </div>
             </ContentPanel>
 
-            <ContentPanel @title="Details" @open={{true}} @wrapperClass="bordered-top">
+            <ContentPanel @title={{t "common.details"}} @open={{true}} @wrapperClass="bordered-top">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
                     <div class="lg:col-span-2">
                         <InputGroup>

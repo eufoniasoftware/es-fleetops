@@ -84,11 +84,11 @@
                             </div>
                             <div class="flex-1">
                                 <div class="text-xs font-semibold">{{vehicle.displayName}}</div>
-                                <div class="text-xs">ID: {{n-a vehicle.public_id}}</div>
-                                <div class="text-xs">Serial No: {{n-a vehicle.serial_number vehicle.vin vehicle.internal_id vehicle.id}}</div>
-                                <div class="text-xs">Driver: {{n-a vehicle.driver_name}}</div>
-                                <div class="text-xs">Status: <span class="{{if vehicle.online 'text-green-500' 'text-red-400'}}">{{if vehicle.online "Online" "Offline"}}</span></div>
-                                <div class="text-xs truncate">Pos: {{point-coordinates vehicle.location}}</div>
+                                <div class="text-xs">{{t "common.id-label"}} {{n-a vehicle.public_id}}</div>
+                                <div class="text-xs">{{t "common.serial-no-label"}} {{n-a vehicle.serial_number vehicle.vin vehicle.internal_id vehicle.id}}</div>
+                                <div class="text-xs">{{t "common.driver-label"}} {{n-a vehicle.driver_name}}</div>
+                                <div class="text-xs">{{t "customer.orders.live-map.status"}} <span class="{{if vehicle.online 'text-green-500' 'text-red-400'}}">{{if vehicle.online (t "customer.orders.live-map.online") (t "customer.orders.live-map.offline")}}</span></div>
+                                <div class="text-xs truncate">{{t "common.pos-label"}} {{point-coordinates vehicle.location}}</div>
                             </div>
                         </div>
                     </marker.popup>

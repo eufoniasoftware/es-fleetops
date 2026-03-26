@@ -55,7 +55,7 @@
                         <div class="field-value">{{n-a @resource.max_distance}}</div>
                     </div>
                     <div class="field-info-container">
-                        <div class="field-name">Max Distance Unit</div>
+                        <div class="field-name">{{t "service-rate.fields.max-distance-unit"}}</div>
                         <div class="field-value">
                             {{#let (find-by "value" @resource.max_distance_unit (get-fleet-ops-options "longDistanceUnits")) as |unit|}}
                                 {{#if unit}}
@@ -86,7 +86,7 @@
                                 </tr>
                             {{else}}
                                 <tr>
-                                    <td colspan="2" class="text-center text-gray-500 italic">No rate fees defined</td>
+                                    <td colspan="2" class="text-center text-gray-500 italic">{{t "service-rate.fields.no-rate-fees"}}</td>
                                 </tr>
                             {{/each}}
                         </tbody>
@@ -114,7 +114,7 @@
                             </tr>
                         {{else}}
                             <tr>
-                                <td colspan="3" class="text-center text-gray-500 italic">No per drop fees defined</td>
+                                <td colspan="3" class="text-center text-gray-500 italic">{{t "service-rate.fields.no-per-drop-fees"}}</td>
                             </tr>
                         {{/each}}
                     </tbody>
@@ -143,7 +143,7 @@
                 </div>
 
                 <div class="field-info-container col-span-2">
-                    <div class="field-name">Calculation Formula</div>
+                    <div class="field-name">{{t "service-rate.fields.calculation-formula"}}</div>
                     <div class="field-value">
                         <code class="dark:text-gray-100">({{@resource.per_meter_flat_rate_fee}}
                             * {distance}
@@ -156,7 +156,7 @@
     {{else if @resource.isAlgorithm}}
         <ContentPanel @title={{t "service-rate.fields.custom-algorithm-title"}} @open={{true}} @wrapperClass="bordered-top">
             <div class="field-info-container">
-                <div class="field-name">Algorithm Code</div>
+                <div class="field-name">{{t "service-rate.fields.algorithm-code"}}</div>
                 <div class="field-value">
                     <pre class="bg-gray-100 dark:bg-gray-800 p-3 rounded text-xs overflow-x-auto"><code>{{n-a @resource.algorithm}}</code></pre>
                 </div>
@@ -251,7 +251,7 @@
                     </div>
                 {{else}}
                     <div class="col-span-2">
-                        <span class="text-gray-500 text-sm italic">No parcel fees configured</span>
+                        <span class="text-gray-500 text-sm italic">{{t "service-rate.fields.no-parcel-fees"}}</span>
                     </div>
                 {{/each}}
             </div>
@@ -277,7 +277,7 @@
     <ContentPanel @title="Additional Fees" @open={{true}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
             <div class="field-info-container">
-                <div class="field-name">Cash on Delivery (COD)</div>
+                <div class="field-name">{{t "service-rate.fields.cash-on-delivery"}}</div>
                 <div class="field-value">
                     {{#if @resource.cod_calculation_method}}
                         {{#let (find-by "value" @resource.cod_calculation_method (get-fleet-ops-options "serviceRateCodCalculationMethods")) as |method|}}
@@ -299,7 +299,7 @@
             </div>
 
             <div class="field-info-container">
-                <div class="field-name">Peak Hours Surcharge</div>
+                <div class="field-name">{{t "service-rate.fields.peak-hours-surcharge"}}</div>
                 <div class="field-value">
                     {{#if @resource.peak_hours_calculation_method}}
                         {{#let (find-by "value" @resource.peak_hours_calculation_method (get-fleet-ops-options "serviceRatePeakHourCalculationMethods")) as |method|}}

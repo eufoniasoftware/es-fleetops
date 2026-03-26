@@ -2,7 +2,7 @@
     <IntegratedVendor::Details @resource={{@resource}} />
 {{else}}
     <div class="details-wrapper" ...attributes>
-        <ContentPanel @title="Details" @open={{true}} @wrapperClass="bordered-top">
+        <ContentPanel @title={{t "common.details"}} @open={{true}} @wrapperClass="bordered-top">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 text-xs dark:text-gray-100">
                 <div class="field-info-container">
                     <div class="field-name">{{t "common.name"}}</div>

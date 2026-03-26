@@ -41,6 +41,29 @@ common:
   edit-address: Edit Address
   new-address: New Address
   select-address: Select Address
+  total: Total
+  online: Online
+  offline: Offline
+  submit: Submit
+  loading: Loading...
+  yes: Yes
+  no: No
+  map: Map
+  pickup: Pickup
+  dropoff: Dropoff
+  description: Description
+  price: Price
+  provider: Provider
+  imei: IMEI
+  iccid: ICCID
+  imsi: IMSI
+  msisdn: MSISDN
+  last-seen: Last Seen
+  signal-strength: Signal Strength
+  id-label: "ID:"
+  serial-no-label: "Serial No:"
+  driver-label: "Driver:"
+  pos-label: "Pos:"
 
 menu:
   operations: Operations
@@ -312,6 +335,9 @@ activity:
       field: Field
       value: Value
       add-logic: Add Logic
+      add-condition: Add condition
+      no-activity-logic: No activity logic
+      add-logic-help-text: Add your first activity logic to create computed activity decisions
       types:
         and: >-
           Logical AND: True if all conditions are true
@@ -343,6 +369,8 @@ activity:
       activity-events-select-to-fire: Select which events will be activated when this activity occurs.
       activity-events-select-events-info: Select the specific event you want to trigger in response to this activity.
       select-event-to-add: Select event to add...
+      no-activity-events: No activity events
+      select-events-help-text: Select and add events to fire once activity is reached
       events:
         order:
           dispatched: Triggers when an order is successfully dispatched.
@@ -364,6 +392,35 @@ customer:
     upload-new-photo: Upload New Photo
     user-account: User Account
     user-account-help-text: Each customer profile needs to be connected to a specific user account. This association is essential for handling the authentication process, ensuring that each customer can securely access and manage their profile and other services.
+  orders:
+    orders: Orders
+    date-created: 'Date Created:'
+    activity: 'Activity:'
+    driver-assigned: Driver Assigned
+    no-driver-assigned: No Driver Assigned
+    items: 'Items:'
+    description: 'Description:'
+    tracking: 'Tracking:'
+    price: 'Price:'
+    none: None
+    service-fees: "Service Fee's:"
+    select-order: Select an Order to view Details
+    create-new-order: Create new order
+    search-orders: Search orders
+    loading-orders: Loading orders...
+    loading-order-details: Loading order details...
+    view-label: View Label
+    view-route: View Route
+    locate-driver: Locate Driver
+    live-map:
+      status: 'Status:'
+      online: Online
+      offline: Offline
+    status: 'Status:'
+    pos: 'Pos:'
+    no-description: No description provided.
+    new-order: New Order
+    type-help: Select the type of order you want to create.
 
 custom-entity:
   fields:
@@ -393,6 +450,8 @@ driver:
     user-account-help-text: Each driver profile needs to be connected to a specific user account. This association is essential for handling the authentication process, ensuring that each driver can securely access and manage their profile.
     vendor: Vendor
     select-vendor: Select Vendor
+    admin-settings:
+      payment-onboard-help: Payment onboard must be completed to enable payments from customers.
     driver-license: Drivers License
     no-vehicle-assigned: No Vehicle Assigned
   actions:
@@ -784,6 +843,15 @@ service-area:
 
 service-rate:
   fields:
+    max-distance-unit: Max Distance Unit
+    no-rate-fees: No rate fees defined
+    no-per-drop-fees: No per drop fees defined
+    calculation-formula: Calculation Formula
+    algorithm-code: Algorithm Code
+    no-parcel-fees: No parcel fees configured
+    cash-on-delivery: Cash on Delivery (COD)
+    not-configured: Not configured
+    peak-hours-surcharge: Peak Hours Surcharge
     details: Service Rate Details
     terms: Terms
     add-drop-off-button: Add drop-off range
@@ -889,6 +957,22 @@ service-rate:
     cod-fee-label: Cod Fee Label
 
 vehicle:
+  locate-vehicle: Locate Vehicle on Map
+  sections:
+    identification: Vehicle Identification
+    assignment-status: Assignment & Status
+    location: Location
+    measurement-units: Measurement & Units
+    odometer-usage: Odometer & Usage
+    body-usage: Body & Usage
+    tech-specs: Technical Specifications
+    powertrain-engine: Powertrain & Engine
+    capacity-dimensions: Capacity & Dimensions
+    regulatory-compliance: Regulatory & Compliance
+    financial-lifecycle: Financial & Lifecycle
+    asset-values: Asset Values
+    lifecycle-service-life: Lifecycle & Service Life
+    financing-loan: Financing (Loan)
   fields:
     avatar: Avatar
     driver-assigned: Driver Assigned
@@ -902,8 +986,75 @@ vehicle:
     vehicle-year: Vehicle year
     vin-number: VIN Number
     year: Year
-  actions:
-    locate-vehicle: Locate Vehicle on Map
+    trim: Trim
+    color: Color
+    serial-number: Serial Number
+    class: Class
+    call-sign: Call Sign
+    system-of-measurement: System of Measurement
+    fuel-volume-unit: Fuel Volume Unit
+    current-odometer: Current Odometer
+    odometer-unit: Odometer Unit
+    odometer-at-purchase: Odometer at Purchase
+    body-type: Body Type
+    body-subtype: Body Subtype
+    usage-type: Usage Type
+    ownership-type: Ownership Type
+    fuel-type: Fuel Type
+    transmission: Transmission
+    engine-number: Engine Number
+    engine-make: Engine Make
+    engine-model: Engine Model
+    engine-family: Engine Family
+    engine-configuration: Engine Configuration
+    cylinder-arrangement: Cylinder Arrangement
+    number-of-cylinders: Number of Cylinders
+    engine-size: Engine Size
+    engine-displacement: Engine Displacement
+    horsepower: Horsepower
+    horsepower-rpm: Horsepower RPM
+    torque: Torque
+    torque-rpm: Torque RPM
+    fuel-capacity: Fuel Capacity
+    payload-capacity: Payload Capacity
+    towing-capacity: Towing Capacity
+    seating-capacity: Seating Capacity
+    vehicle-weight: Vehicle Weight
+    length: Length
+    width: Width
+    height: Height
+    cargo-volume: Cargo Volume
+    passenger-volume: Passenger Volume
+    interior-volume: Interior Volume
+    ground-clearance: Ground Clearance
+    bed-length: Bed Length
+    emission-standard: Emission Standard
+    dpf-equipped: DPF Equipped
+    scr-equipped: SCR Equipped
+    gvwr: GVWR
+    gcwr: GCWR
+    acquisition-cost: Acquisition Cost
+    current-value: Current Value
+    insurance-value: Insurance Value
+    depreciation-rate: Depreciation Rate (%)
+    estimated-service-life-distance: Estimated Service Life (Distance)
+    service-life-distance-unit: Service Life Distance Unit
+    estimated-service-life-months: Estimated Service Life (Months)
+    purchase-date: Purchase Date
+    lease-expiry-date: Lease Expiry Date
+    loan-amount: Loan Amount
+    number-of-payments: Number of Payments
+    first-payment-date: First Payment Date
+
+telematic:
+  sections:
+    provider: Telematics Provider
+    details: Integration Details
+    blackbox: Telematic Blackbox
+  fields:
+    integration-name: Integration Name
+    firmware-version: Firmware Version
+    online-status: Online Status
 
 vendor:
   fields:
@@ -1404,6 +1555,9 @@ modals:
     stroke: Stroke (mm)
     torque-nm: Torque (nm)
     torque-rpm: Torque (rpm)
+    order-tracking:
+      date-created: "Date Created:"
+      live-map: "Live Map:"
     valves: Valves Per Cylinder
     fuel-information: Fuel Information
     fuel: Fuel
@@ -1716,3 +1870,40 @@ settings:
       button-continue: Continue
       button-start: Start onboard now
       button-in-progress: Onboard in progress
+
+warranty:
+  fields:
+    provider: Provider
+    policy-number: Policy Number
+    status: Status
+    active: Active
+    expired: Expired
+    inactive: Inactive
+    vendor: Vendor
+    subject: Subject
+    coverage-summary: Coverage Summary
+    start-date: Start Date
+    end-date: End Date
+    days-remaining: Days Remaining
+    expiring-soon: Expiring Soon
+    terms: Terms
+    policy-document: Policy Document
+
+equipment:
+  fields:
+    name: Name
+    code: Code
+    type: Type
+    status: Status
+    serial-number: Serial Number
+    manufacturer: Manufacturer
+    model: Model
+    purchased-at: Purchased At
+    purchase-price: Purchase Price
+    warranty: Warranty
+    equipped-to: Equipped To
+    equipped-status: Equipped Status
+    equipped: Equipped
+    not-equipped: Not Equipped
+    age: Age
+    depreciated-value: Depreciated Value
