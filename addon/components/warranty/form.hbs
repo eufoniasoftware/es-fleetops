@@ -1,19 +1,19 @@
 <div class="form-wrapper" ...attributes>
-    <ContentPanel @title="Warranty Details" @open={{true}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "warranty.fields.warranty-details"}} @open={{true}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 gap-2 lg:grid-cols-2 lg:gap-2 no-input-group-padding text-xs">
-            <InputGroup @name="Provider" @wrapperClass="col-span-2">
-                <Input @value={{@resource.provider}} @type="text" class="w-full form-input" placeholder="Provider" disabled={{cannot-write @resource}} />
+            <InputGroup @name={{t "warranty.fields.provider"}} @wrapperClass="col-span-2">
+                <Input @value={{@resource.provider}} @type="text" class="w-full form-input" placeholder={{t "warranty.fields.provider"}} disabled={{cannot-write @resource}} />
             </InputGroup>
 
-            <InputGroup @name="Policy Number">
-                <Input @value={{@resource.policy_number}} @type="text" class="w-full form-input" placeholder="Policy Number" disabled={{cannot-write @resource}} />
+            <InputGroup @name={{t "warranty.fields.policy-number"}}>
+                <Input @value={{@resource.policy_number}} @type="text" class="w-full form-input" placeholder={{t "warranty.fields.policy-number"}} disabled={{cannot-write @resource}} />
             </InputGroup>
 
-            <InputGroup @name="Vendor">
+            <InputGroup @name={{t "warranty.fields.vendor"}}>
                 <ModelSelect
                     @modelName="vendor"
                     @selectedModel={{@resource.vendor}}
-                    @placeholder="Select Vendor"
+                    @placeholder={{t "warranty.fields.select-vendor"}}
                     @triggerClass="form-select form-input"
                     @infiniteScroll={{false}}
                     @renderInPlace={{true}}
@@ -26,44 +26,44 @@
                 </ModelSelect>
             </InputGroup>
 
-            <InputGroup @name="Start Date">
+            <InputGroup @name={{t "warranty.fields.start-date"}}>
                 <DatePicker
                     @value={{@resource.start_date}}
                     @onChange={{fn (mut @resource.start_date)}}
-                    @placeholder="Select Start Date"
+                    @placeholder={{t "warranty.fields.select-start-date"}}
                     @disabled={{cannot-write @resource}}
                     class="w-full form-input"
                 />
             </InputGroup>
 
-            <InputGroup @name="End Date">
+            <InputGroup @name={{t "warranty.fields.end-date"}}>
                 <DatePicker
                     @value={{@resource.end_date}}
                     @onChange={{fn (mut @resource.end_date)}}
-                    @placeholder="Select End Date"
+                    @placeholder={{t "warranty.fields.select-end-date"}}
                     @disabled={{cannot-write @resource}}
                     class="w-full form-input"
                 />
             </InputGroup>
 
-            <InputGroup @name="Terms" @wrapperClass="col-span-2">
+            <InputGroup @name={{t "warranty.fields.terms"}} @wrapperClass="col-span-2">
                 <Textarea
                     @value={{@resource.terms}}
-                    aria-label="Terms"
+                    aria-label={{t "warranty.fields.terms"}}
                     class="w-full form-input"
                     disabled={{cannot-write @resource}}
-                    placeholder="Warranty Terms"
+                    placeholder={{t "warranty.fields.warranty-terms"}}
                     rows={{5}}
                 />
             </InputGroup>
 
-            <InputGroup @name="Policy Document" @wrapperClass="col-span-2">
+            <InputGroup @name={{t "warranty.fields.policy-document"}} @wrapperClass="col-span-2">
                 <Textarea
                     @value={{@resource.policy}}
-                    aria-label="Policy"
+                    aria-label={{t "warranty.fields.policy"}}
                     class="w-full form-input"
                     disabled={{cannot-write @resource}}
-                    placeholder="Policy Document"
+                    placeholder={{t "warranty.fields.policy-document"}}
                     rows={{5}}
                 />
             </InputGroup>

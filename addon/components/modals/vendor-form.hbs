@@ -167,7 +167,7 @@
                         <div>
                             <div class="rounded-md border border-blue-300 dark:border-blue-600 bg-blue-100 dark:bg-blue-500 text-blue-900 dark:text-white text-sm px-4 py-2 mb-4">
                                 <p class="mb-2">{{t "modals.vendor-form.reset-message"}}</p>
-                                <Button @type="default" @size="xs" @icon="repeat" @text="Click here to reset" @onClick={{@options.toggleCredentialsReset}} />
+                                <Button @type="default" @size="xs" @icon="repeat" @text={{t "modals.vendor-form.reset-button-text"}} @onClick={{@options.toggleCredentialsReset}} />
                             </div>
                         </div>
                         {{#each @options.vendor.provider_settings.credential_params as |param|}}
@@ -213,7 +213,7 @@
                     {{/each}}
                 </div>
                 <InputGroup @wrapperClass="mb-2">
-                    <Checkbox @value={{@options.vendor.sandbox}} @label="Sandbox" @onToggle={{fn (mut @options.vendor.sandbox)}} @alignItems="center" @labelClass="mb-0i" />
+                    <Checkbox @value={{@options.vendor.sandbox}} @label={{t "modals.vendor-form.sandbox"}} @onToggle={{fn (mut @options.vendor.sandbox)}} @alignItems="center" @labelClass="mb-0i" />
                 </InputGroup>
                 <div>
                     <button type="button" class="btn-link text-xs outline-none text-blue-600 hover:text-blue-600 mb-3" {{on "click" @options.toggleAdvancedOptions}}>

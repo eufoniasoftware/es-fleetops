@@ -12,7 +12,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs dark:text-gray-100">
                 <div class="field-info-container">
                     <div class="field-name">{{t "modals.vendor-details.sandbox"}}</div>
-                    <div class="field-value">{{if @options.vendor.sandbox "Yes" "No"}}</div>
+                    <div class="field-value">{{if @options.vendor.sandbox (t "common.yes") (t "common.no")}}</div>
                 </div>
                 <div class="field-info-container">
                     <div class="field-name">{{t "modals.vendor-details.host"}}</div>

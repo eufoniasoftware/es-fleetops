@@ -19,7 +19,7 @@
             </div>
             <div class="field-info-container">
                 <div class="field-name">{{t "common.active-manpower"}}</div>
-                <div class="field-value">{{@options.fleet.drivers_online_count}} of {{@options.fleet.drivers_count}} Online</div>
+                <div class="field-value">{{t "common.online-count" online=@options.fleet.drivers_online_count total=@options.fleet.drivers_count}}</div>
             </div>
             <div class="field-info-container">
                 <div class="field-name">{{t "common.date-created"}}</div>

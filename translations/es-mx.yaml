@@ -44,8 +44,10 @@ common:
   total: Total
   online: En línea
   offline: Desconectado
+  online-count: "{online} de {total} En Línea"
   submit: Enviar
   loading: Cargando...
+  uploading: Subiendo...
   yes: Sí
   no: No
   map: Mapa
@@ -64,6 +66,16 @@ common:
   serial-no-label: "N° de serie:"
   driver-label: "Conductor:"
   pos-label: "Pos:"
+  edit: Editar
+  remove: Eliminar
+  save: Guardar
+  cancel: Cancelar
+  photos: Fotos
+  upload-image: Subir imagen
+  upload-image-supported: JPG, PNG o GIF. Máximo 5MB.
+  no-description-provided: No se proporcionó descripción.
+  view-label: Ver etiqueta
+  item: Artículo
 
 menu:
   operations: Operaciones
@@ -438,6 +450,7 @@ custom-entity:
     weight-text: Texto de peso
     width: Ancho
     width-text: Texto de ancho
+    upload-image-help-text: Ingrese el nombre y la descripción de la entidad personalizada primero para subir la imagen
 
 driver:
   fields:
@@ -535,6 +548,7 @@ fleet:
     zone-title: Asignar a Zona
     active-manpower: Mano de obra activa
     task: Tarea
+    drivers-online-status: "{online} de {total} en línea"
   driver-listing:
     search-driver: Buscar conductores en la flota
     add-driver: Agregar conductor a la flota
@@ -1267,6 +1281,8 @@ scheduler:
     scheduling-for: Programando para {orderId}
 
 modals:
+  bulk-assign-driver:
+    notify-driver: Notificar al conductor
   new-custom-field-group:
     modal-title: Crear un nuevo grupo de campos personalizados
     group-name: Nombre del grupo
@@ -1399,6 +1415,9 @@ modals:
     service-type: Tipo de Área de Servicio
     service-type-text: Seleccione la definición de tipo para esta área de servicio.
     select-service-type: Seleccionar tipo de área de servicio...
+    layer-name: "Nombre de la {type}"
+    layer-border-color: "Color del borde de la {type}"
+    layer-color: "Color de la {type}"
     customize-border: Personalizar el color del borde para este {options}.
     customize-fill-color: Personalizar el color de relleno para este {options}.
     service-area-country: País del Área de Servicio
@@ -1617,6 +1636,7 @@ modals:
     webhook-text: Los proveedores integrados típicamente requerirán esto para que Fleetbase pueda recibir actualizaciones de actividad en el pedido. ¡No cambie a menos que sepa lo que está haciendo! ¡Cambiar esto puede romper las actualizaciones de sus pedidos!
     cancel-credentials: Cancelar restablecimiento de credenciales
     reset-message: Las credenciales sensibles solo se pueden restablecer, para actualizar las credenciales debe volver a ingresarlas.
+    reset-button-text: Haz clic aquí para restablecer
     optionally: Opcionalmente proporcione el suyo
     configure-vendor: para configurar este proveedor.
     select: Seleccionar
@@ -1627,6 +1647,18 @@ modals:
     website-text: El sitio web del proveedor, opcionalmente agregue el sitio web del proveedor para referencia.
     select-address: Seleccionar dirección
 
+  reset-customer-credentials:
+    modal-title: Restablecer contraseña
+    resetting-for: "Estás a punto de restablecer la contraseña de {name}"
+    instructions: "Por favor, ingresa la nueva contraseña y confírmala a continuación. Tienes la opción de enviar las nuevas credenciales al cliente por correo electrónico seleccionando la casilla de verificación."
+    new-password: Nueva contraseña
+    confirm-password: Confirmar nueva contraseña
+    send-credentials: Enviar credenciales de contraseña al cliente
+  
+  update-order-activity:
+    refresh-activity: Actualizar actividad
+    add-custom: Agregar actividad personalizada
+  
   zone-form:
     name: Nombre de la zona
     name-text: Establezca un nombre para mostrar de la zona.
@@ -1888,6 +1920,12 @@ warranty:
     expiring-soon: Próximo a expirar
     terms: Términos
     policy-document: Documento de la póliza
+    warranty-details: Detalles de la garantía
+    select-vendor: Seleccionar proveedor
+    select-start-date: Seleccionar fecha de inicio
+    select-end-date: Seleccionar fecha de finalización
+    warranty-terms: Términos de la garantía
+    policy: Póliza
 
 equipment:
   fields:
@@ -1907,4 +1945,27 @@ equipment:
     not-equipped: No equipado
     age: Edad
     depreciated-value: Valor depreciado
+    equipment-details: Detalles del equipo
+    upload-new-photo: Subir nueva foto
+    equipment-code: Código del equipo
+    select-equipment-type: Seleccionar tipo de equipo
+    select-status: Seleccionar estado
+    select-purchase-date: Seleccionar fecha de compra
+    select-warranty: Seleccionar garantía
+
+dropzone:
+  file: archivo
+  drop-to-upload: Suelta para subir
+  invalid: Inválido
+  files-ready-for-upload: '{numOfFiles} listo(s) para subir.'
+  upload-images-videos: Subir imágenes y videos
+  upload-documents: Subir documentos
+  upload-documents-files: Subir documentos y archivos
+  upload-avatar-files: Subir avatares personalizados
+  dropzone-supported-images-videos: Arrastra y suelta archivos de imagen y video en esta zona
+  dropzone-supported-avatars: Arrastra y suelta archivos SVG o PNG
+  dropzone-supported-files: Arrastra y suelta archivos en esta zona
+  or-select-button-text: o selecciona archivos para subir.
+  upload-queue: Cola de subida
+  uploading: Subiendo...
 

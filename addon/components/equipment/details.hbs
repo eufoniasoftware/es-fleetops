@@ -1,5 +1,5 @@
 <div class="details-wrapper" ...attributes>
-    <ContentPanel @title="Details" @open={{true}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "equipment.fields.equipment-details"}} @open={{true}} @wrapperClass="bordered-top">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
             <div class="field-info-container">
                 <div class="field-name">{{t "equipment.fields.name"}}</div>
@@ -83,7 +83,7 @@
 
     <CustomField::Yield @subject={{@resource}} @viewMode={{true}} @wrapperClass="bordered-top" />
 
-    <ContentPanel @title="Photo" @open={{true}} @wrapperClass="bordered-top">
+    <ContentPanel @title={{t "common.photos"}} @open={{true}} @wrapperClass="bordered-top">
         <div class="flex px-1">
             <div class="border border-dashed border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-600 rounded-lg flex items-center justify-center">
                 <div class="flex items-center justify-center h-20 w-24">

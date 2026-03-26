@@ -26,7 +26,7 @@
                             @endpoint="integrated-vendors/supported"
                             @selected={{this.integration.provider_options}}
                             @onChange={{this.createVendorIntegration}}
-                            @placeholder="Select integrated vendor provider"
+                            @placeholder={{t "vendor.fields.choose-vendor"}}
                             @disabled={{cannot-write @resource}}
                             as |option|
                         >
@@ -95,7 +95,7 @@
                         </label>
                         <div class="mb-1.5 space-x-1 flex flex-row">
                             {{#if @resource.has_place}}
-                                <Button @type="danger" @size="xs" @icon="trash" @text="Remove" @onClick={{this.removePlace}} @disabled={{cannot-write @resource}} />
+                                <Button @type="danger" @size="xs" @icon="trash" @text={{t "common.remove"}} @onClick={{this.removePlace}} @disabled={{cannot-write @resource}} />
                             {{/if}}
                             <Button
                                 @type="default"

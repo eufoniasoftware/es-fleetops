@@ -14,7 +14,7 @@
                 @accept="image/*"
                 @onFileAdded={{this.onFileAdded}}
                 @disabled={{not (and @resource.name @resource.description)}}
-                @helpText={{if (not (and @resource.name @resource.description)) "Input custom entity name and description first to upload image" ""}}
+                @helpText={{if (not (and @resource.name @resource.description)) (t "custom-entity.fields.upload-image-help-text") ""}}
                 class="w-32"
             />
         </div>

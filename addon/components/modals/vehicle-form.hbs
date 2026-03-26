@@ -10,10 +10,10 @@
                     width="128"
                     class="h-32 w-32 rounded-md"
                 />
-                <UploadButton @name="photos" @accept="image/*" @onFileAdded={{@options.uploadNewPhoto}} class="w-32" />
+                <UploadButton @name={{t "common.photos"}} @accept="image/*" @onFileAdded={{@options.uploadNewPhoto}} class="w-32" />
             </div>
             <div class="flex-1 space-y-4">
-                <ContentPanel @title="Details" @open={{true}} @panelBodyClass="bg-white dark:bg-gray-800">
+                <ContentPanel @title={{t "common.details"}} @open={{true}} @panelBodyClass="bg-white dark:bg-gray-800">
                     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-2">
                         <div class="input-group mb-2">
                             <label>
@@ -64,7 +64,7 @@
                             <ModelSelect
                                 @modelName="driver"
                                 @selectedModel={{@options.vehicle.driver}}
-                                @placeholder="Select Driver"
+                                @placeholder={{t "common.select-field" field=(t "resource.driver")}}
                                 @triggerClass="form-select form-input"
                                 @infiniteScroll={{false}}
                                 @renderInPlace={{true}}

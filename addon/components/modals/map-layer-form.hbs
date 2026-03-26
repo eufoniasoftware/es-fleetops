@@ -29,7 +29,7 @@
         {{/if}}
         <InputGroup
             @value={{@options.layerOptions.name}}
-            @name="{{@options.selectedLayerType}} Name"
+            @name={{t "modals.map-layer-form.layer-name" type=@options.selectedLayerType}}
             @helpText={{t "modals.map-layer-form.set-name" htmlSafe=true options=@options.selectedLayerType}}
             @required={{true}}
         />
@@ -47,14 +47,14 @@
         <InputGroup
             @type="color"
             @value={{@options.layerOptions.stroke_color}}
-            @name="{{@options.selectedLayerType}} Border Color"
+            @name={{t "modals.map-layer-form.layer-border-color" type=@options.selectedLayerType}}
             @helpText={{t "modals.map-layer-form.customize-border" htmlSafe=true options=@options.selectedLayerType}}
             class="p-0 border-0 m-0 w-8 h-8 bg-transparent rounded-none"
         />
         <InputGroup
             @type="color"
             @value={{@options.layerOptions.color}}
-            @name="{{@options.selectedLayerType}} Color"
+            @name={{t "modals.map-layer-form.layer-color" type=@options.selectedLayerType}}
             @helpText={{t "modals.map-layer-form.customize-fill-color" htmlSafe=true options=@options.selectedLayerType}}
             class="p-0 border-0 m-0 w-8 h-8 bg-transparent rounded-none"
         />

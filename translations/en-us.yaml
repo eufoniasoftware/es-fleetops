@@ -44,8 +44,10 @@ common:
   total: Total
   online: Online
   offline: Offline
+  online-count: "{online} of {total} Online"
   submit: Submit
   loading: Loading...
+  uploading: Uploading...
   yes: Yes
   no: No
   map: Map
@@ -64,6 +66,16 @@ common:
   serial-no-label: "Serial No:"
   driver-label: "Driver:"
   pos-label: "Pos:"
+  edit: Edit
+  remove: Remove
+  save: Save
+  cancel: Cancel
+  photos: Photos
+  upload-image: Upload Image
+  upload-image-supported: JPG, PNG or GIF. Max 5MB.
+  no-description-provided: No description provided.
+  view-label: View Label
+  item: Item
 
 menu:
   operations: Operations
@@ -438,6 +450,7 @@ custom-entity:
     weight-text: Weight Text
     width: Width
     width-text: Width Text
+    upload-image-help-text: Input custom entity name and description first to upload image
 
 driver:
   fields:
@@ -535,6 +548,7 @@ fleet:
     zone-title: Assign to Zone
     active-manpower: Active Manpower
     task: Task
+    drivers-online-status: "{online} of {total} Online"
   driver-listing:
     search-driver: Search drivers in fleet
     add-driver: Add driver to fleet
@@ -1399,6 +1413,9 @@ modals:
     service-type: Service Area Type
     service-type-text: Select the type definition for this service area .
     select-service-type: Select service area type...
+    layer-name: "{type} Name"
+    layer-border-color: "{type} Border Color"
+    layer-color: "{type} Color"
     customize-border: Customize the border color for this {options}.
     customize-fill-color: Customize the fill color for this {options}.
     service-area-country: Service Area Country
@@ -1617,6 +1634,7 @@ modals:
     webhook-text: Integrated vendors will typically require this so that Fleetbase can receive activity updates on the order. Do not change unless you know what you are doing! Changing this may break your order updates!
     cancel-credentials: Cancel credentials reset
     reset-message: Sensitive credentials can only be reset, to update credentials you must re-enter the credentials.
+    reset-button-text: Click here to reset
     optionally: Optionally supply your own
     configure-vendor: to configure this vendor.
     select: Select
@@ -1627,6 +1645,18 @@ modals:
     website-text: The vendor's website, optionally add the vendors website for reference.
     select-address: Select Address
 
+  reset-customer-credentials:
+    modal-title: Reset Password
+    resetting-for: "You are about to reset the password for {name}"
+    instructions: "Please enter the new password and confirm it below. You have the option to send the new credentials to the customer via email by selecting the checkbox."
+    new-password: New Password
+    confirm-password: Confirm New Password
+    send-credentials: Send password credentials to customer
+  
+  update-order-activity:
+    refresh-activity: Refresh activity
+    add-custom: Add custom activity
+  
   zone-form:
     name: Zone Name
     name-text: Set a display name for the zone.
@@ -1888,6 +1918,12 @@ warranty:
     expiring-soon: Expiring Soon
     terms: Terms
     policy-document: Policy Document
+    warranty-details: Warranty Details
+    select-vendor: Select Vendor
+    select-start-date: Select Start Date
+    select-end-date: Select End Date
+    warranty-terms: Warranty Terms
+    policy: Policy
 
 equipment:
   fields:
@@ -1907,3 +1943,27 @@ equipment:
     not-equipped: Not Equipped
     age: Age
     depreciated-value: Depreciated Value
+    equipment-details: Equipment Details
+    upload-new-photo: Upload new photo
+    equipment-code: Equipment Code
+    select-equipment-type: Select Equipment Type
+    select-status: Select Status
+    select-purchase-date: Select Purchase Date
+    select-warranty: Select Warranty
+
+dropzone:
+  file: file
+  drop-to-upload: Drop to upload
+  invalid: Invalid
+  files-ready-for-upload: >-
+    {numOfFiles} ready for upload.
+  upload-images-videos: Upload Images & Videos
+  upload-documents: Upload Documents
+  upload-documents-files: Upload Documents & Files
+  upload-avatar-files: Upload Custom Avatars
+  dropzone-supported-images-videos: Drag and drop image and video files onto this dropzone
+  dropzone-supported-avatars: Drag and drop SVG or PNG files
+  dropzone-supported-files: Drag and drop files onto this dropzone
+  or-select-button-text: or select files to upload.
+  upload-queue: Upload Queue
+  uploading: Uploading...
