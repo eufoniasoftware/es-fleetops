@@ -8,9 +8,38 @@ export default class OsrmService extends RouteOptimizationInterfaceService {
 
     async optimize({ order, payload, waypoints, coordinates: originalCoords }, options = {}) {
         const driverAssigned = order.driver_assigned;
-        const driverPosition = driverAssigned?.location?.coordinates; // [lon,lat] | undefined
-        const coordinates = driverPosition ? [driverPosition, ...originalCoords] : [...originalCoords];
+        const rawDriverPosition = driverAssigned?.location?.coordinates;
+        const isValidDriver =
+            Array.isArray(rawDriverPosition) &&
+            rawDriverPosition.length === 2 &&
+            !(rawDriverPosition[0] === 0 && rawDriverPosition[1] === 0);
+
+        const driverPosition = isValidDriver ? rawDriverPosition : null;
+        let orderedWaypoints;
+
+        if (!driverPosition) {
+            // if the driver is not connected , the firts is the pickup
+            const pickup = waypoints.find(wp => wp.type === 'pickup');
+            const dropoffs = waypoints.filter(wp => wp.type !== 'pickup');
+
+            orderedWaypoints = pickup
+                ? [pickup, ...dropoffs]
+                : [...waypoints];
+        } else {
+            orderedWaypoints = [...waypoints];
+        }
+
+        const originalCoordsWayPoints = orderedWaypoints
+            .map(wp => wp.location?.coordinates)
+            .filter(coord =>
+                Array.isArray(coord) &&
+                coord.length === 2 &&
+                !(coord[0] === 0 && coord[1] === 0)
+            );
         const hasDriverStart = Boolean(driverPosition);
+        const coordinates = driverPosition
+            ? [driverPosition, ...originalCoordsWayPoints]
+            : [...originalCoordsWayPoints];
         const source = 'first';
         const destination = 'any';
         const roundtrip = false; // don’t loop back
