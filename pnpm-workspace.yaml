@@ -1,0 +1,2 @@
+overrides:
+  "@fleetbase/ember-ui": "github:eufoniasoftware/es-ember-ui#main"
